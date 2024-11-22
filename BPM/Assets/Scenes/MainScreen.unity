@@ -273,7 +273,7 @@ RectTransform:
   m_Children:
   - {fileID: 1217206037}
   m_Father: {fileID: 667170766}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -422,8 +422,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
+  m_sharedMaterial: {fileID: 6914004678995066455, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -590,8 +590,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 129215546}
   - {fileID: 1044100347}
+  - {fileID: 129215546}
   - {fileID: 691691801}
   - {fileID: 932393851}
   m_Father: {fileID: 0}
@@ -784,8 +784,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
+  m_sharedMaterial: {fileID: 6914004678995066455, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1014,7 +1014,7 @@ RectTransform:
   m_Children:
   - {fileID: 1196258644}
   m_Father: {fileID: 667170766}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7229455, b: 0.11006278, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1163,15 +1163,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
+  m_sharedMaterial: {fileID: 6914004678995066455, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290725305
+  m_fontColor: {r: 0.72399616, g: 0.27065766, b: 0.7484276, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 8192
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1250,7 +1250,7 @@ GameObject:
   - component: {fileID: 1217206039}
   - component: {fileID: 1217206038}
   m_Layer: 5
-  m_Name: TextStartGame
+  m_Name: TextLevel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,8 +1298,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
+  m_sharedMaterial: {fileID: 6914004678995066455, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
