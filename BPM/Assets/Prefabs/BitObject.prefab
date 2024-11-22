@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   spriteRenderer: {fileID: 6424088814436236409}
+  rotationSpeed: 300
 --- !u!58 &-7740106520003618503
 CircleCollider2D:
   m_ObjectHideFlags: 0

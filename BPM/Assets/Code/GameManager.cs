@@ -184,6 +184,15 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+
+        if (move > 0)
+        {
+            _player.transform.rotation = Quaternion.Euler(0, 0, -30);
+        }
+        else
+        {
+            _player.transform.rotation = Quaternion.Euler(0, 0, 30);
+        }
         
         _currentPath = index;
         
@@ -207,6 +216,7 @@ public class GameManager : MonoBehaviour
                 _player.transform.position = _targetPosition.position;
                 _isMoving = false;
                 _player.BoxCollider2D.enabled = true;
+                _player.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }
@@ -230,7 +240,7 @@ public class GameManager : MonoBehaviour
     public void RemoveTime(float time)
     {
         _time -= time;
-        _timer.text = _time.ToString("F2") + "<size=40>s";
+
         AnimateBonus(false, time).Forget();
     }
 
