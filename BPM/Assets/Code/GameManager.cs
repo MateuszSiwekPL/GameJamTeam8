@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
         }
         
         _time -= Time.deltaTime;
-        _timer.text = _time.ToString("F2") + "<size=40>s";
+        _timer.text = _time.ToString("F2") + "<size=70>s";
         
         if(_time <= 0)
         {
@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
     public void AddTime(float time)
     {
         _time += time;
-        _timer.text = _time.ToString("F2") + "<size=40>s";
+        _timer.text = _time.ToString("F2") + "<size=70>s";
         AnimateBonus(true, time).Forget();
     }
     
@@ -284,12 +284,12 @@ public class GameManager : MonoBehaviour
         
         if (isPlus)
         {
-            _bonusText.text = "+" + value.ToString("F0") + "<size=20>s";
+            _bonusText.text = "+" + value.ToString("F0") + "<size=40>s";
             _bonusText.color = Color.green;
         }
         else
         {
-            _bonusText.text = "-" + value.ToString("F0") + "<size=20>s";
+            _bonusText.text = "-" + value.ToString("F0") + "<size=40>s";
             _bonusText.color = Color.red;
         }
 

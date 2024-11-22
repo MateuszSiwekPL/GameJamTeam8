@@ -9,9 +9,11 @@ public class LeaderBoard : MonoBehaviour
     void Start()
     {
         var rankings = LoadRankings();
-        foreach (var rank in rankings)
+        foreach (var rank in rankings.Take(10))
         {
-            Instantiate(rankPrefab, rankParent).GetComponent<RankElement>().SetRank(rankings.IndexOf(rank)+1, rank.playerName, rank.score);
+            Instantiate(rankPrefab, rankParent)
+                .GetComponent<RankElement>()
+                .SetRank(rankings.IndexOf(rank) + 1, rank.playerName, rank.score);
         }
     }
     
