@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CanvasGroup _bonusTextCanvas;
     [SerializeField] private Image _progressImage;
     [SerializeField] private float timeToWait;
+    [SerializeField] private TextMeshProUGUI _startTimer;
     
     
     private bool _shouldSpawn = true;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     private Transform _targetPosition;
     private bool _isMoving;
     private CancellationTokenSource _ct;
+    private bool _gameStarted;
 
     private void Awake()
     {
@@ -48,10 +50,27 @@ public class GameManager : MonoBehaviour
 
     private async void Start()
     {
+        StartTimerDisplay().Forget();
         await UniTask.Delay(TimeSpan.FromMilliseconds(timeToWait));
+        _gameStarted = true;
         _progressImage.DOFillAmount(0, _hiddenTime).SetEase(Ease.Linear);
         StartSpawning().Forget();
         StartBit().Forget();
+    }
+
+    private async UniTask StartTimerDisplay()
+    {
+        var thisTime = timeToWait/1000;
+        while (thisTime > 0)
+        {
+            _startTimer.text = thisTime.ToString("F2");
+            
+            await UniTask.Yield();
+            
+            thisTime -= Time.deltaTime;
+        }
+        
+        _startTimer.gameObject.SetActive(false);
     }
     
     private async UniTask StartBit()
@@ -96,10 +115,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
         MovePlayer();
-        if (_shouldSpawn)
+        if (_gameStarted)
         {
+            GetInput();
             UpdateTimer();
             UpdateHiddenTimer();
         }
@@ -107,6 +126,11 @@ public class GameManager : MonoBehaviour
     
     private void UpdateHiddenTimer()
     {
+        if(_shouldSpawn == false)
+        {
+            return;
+        }
+        
         _hiddenTime -= Time.deltaTime;
         
         if(_hiddenTime <= 0)
@@ -130,6 +154,11 @@ public class GameManager : MonoBehaviour
     
     private void UpdateTimer()
     {
+        if(_shouldSpawn == false)
+        {
+            return;
+        }
+        
         _time -= Time.deltaTime;
         _timer.text = _time.ToString("F2") + "<size=40>s";
         
