@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  timeToRemove: 10
 --- !u!50 &4883483879259647470
 Rigidbody2D:
   serializedVersion: 4

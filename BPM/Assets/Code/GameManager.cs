@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _spawnRate;
     [SerializeField] private float _bitRate;
     [SerializeField] private GameObject _bonusPrefab;
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private List<GameObject>_enemyPrefabs;
     [SerializeField] private GameObject _bitPrefab;
     [SerializeField] private Transform _raycastOrigin;
     [SerializeField] private Transform _bitSpawnPoint;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < numberOfObjects; i++)
             {
-                var enemy = Instantiate(_enemyPrefab);
+                var enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)]);
                 int randomPath;
                 while (true)
                 {

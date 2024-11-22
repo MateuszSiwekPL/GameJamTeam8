@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
-            GameManager.Instance.RemoveTime(10f);
+            other.GetComponent<EnemyBehaviour>().RemoveTime();
         }
         
         if(other.gameObject.CompareTag("Bonus"))
