@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _hiddenTime;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private EndScreen _endScreen;
+    [SerializeField] private TextMeshProUGUI _bonusText;
+    [SerializeField] private CanvasGroup _bonusTextCanvas;
     
     
     private bool _shouldSpawn = true;
@@ -32,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private Transform _targetPosition;
     private bool _isMoving;
+    private CancellationTokenSource _ct;
 
     private void Awake()
     {
@@ -120,11 +125,12 @@ public class GameManager : MonoBehaviour
     
     private void UpdateTimer()
     {
-        _timer.text = _time.ToString("F2");
+        _timer.text = _time.ToString("F2") + "<size=40>s";
         _time -= Time.deltaTime;
         
         if(_time <= 0)
         {
+            _timer.text = "Party Over";
             _shouldSpawn = false;
             Debug.Log("LOSE");
             ShowEndScreen(false, true).Forget();
@@ -214,10 +220,59 @@ public class GameManager : MonoBehaviour
     public void AddTime(float time)
     {
         _time += time;
+        AnimateBonus(true, time).Forget();
     }
     
     public void RemoveTime(float time)
     {
         _time -= time;
+        AnimateBonus(false, time).Forget();
+    }
+
+    private async UniTask AnimateBonus(bool isPlus, float value)
+    {
+        _ct?.Cancel();
+        _ct = new CancellationTokenSource();
+        
+        if (isPlus)
+        {
+            _bonusText.text = "+" + value.ToString("F0") + "<size=20>s";
+            _bonusText.color = Color.green;
+        }
+        else
+        {
+            _bonusText.text = "-" + value.ToString("F0") + "<size=20>s";
+            _bonusText.color = Color.red;
+        }
+
+        var scale = _player.transform.localScale;
+
+        try
+        {
+            if (isPlus)
+            {
+                await UniTask.WhenAll(
+                    _bonusTextCanvas.DOFade(1, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token),
+                    _player.transform.DOScale(scale * 1.2f, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token)
+                );
+
+                await UniTask.WhenAll(
+                    _bonusTextCanvas.DOFade(0, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token),
+                    _player.transform.DOScale(scale, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token)
+                );
+            }
+            else
+            {
+                await _bonusTextCanvas.DOFade(1, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token);
+                await _bonusTextCanvas.DOFade(0, _bitRate / 2000).ToUniTask(cancellationToken: _ct.Token);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            _bonusTextCanvas.alpha = 0;
+            _player.transform.localScale = scale;
+        }
+        
+        _player.transform.localScale = scale;
     }
 }
