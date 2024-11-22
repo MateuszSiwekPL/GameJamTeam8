@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image _progressImage;
     [SerializeField] private float timeToWait;
     [SerializeField] private TextMeshProUGUI _startTimer;
+    [SerializeField] private AudioSource _musicSource;
     
     
     private bool _shouldSpawn = true;
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour
             _shouldSpawn = false;
             Debug.Log("LOSE");
             ShowEndScreen(false, true).Forget();
+            _musicSource.Stop();
         }
     }
     

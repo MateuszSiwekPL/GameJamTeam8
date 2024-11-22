@@ -11156,6 +11156,7 @@ MonoBehaviour:
   _progressImage: {fileID: 1634250240}
   timeToWait: 5550
   _startTimer: {fileID: 2125104432}
+  _musicSource: {fileID: 1459795834}
 --- !u!4 &1345839801
 Transform:
   m_ObjectHideFlags: 0
