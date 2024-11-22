@@ -9,6 +9,7 @@ public class ButtonBaseAnimation : MonoBehaviour, IPointerDownHandler, IPointerU
     [SerializeField] private float _pressScale = 0.75f;
 
     [SerializeField] private Transform _buttonParent;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -18,6 +19,11 @@ public class ButtonBaseAnimation : MonoBehaviour, IPointerDownHandler, IPointerU
     public void OnPointerDown(PointerEventData eventData)
     {
         _buttonParent.DOScale(0.75f, 0.1f);
+        
+        if (_audioSource != null)
+        {
+            _audioSource.Play();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
