@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6126322013106921882}
   - component: {fileID: 6126322013106921880}
   - component: {fileID: 6126322013106921883}
+  - component: {fileID: 1314204367235086520}
   m_Layer: 5
   m_Name: PanelLeaderboard
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1314204367235086520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126322013106921861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57cd02c29fe31946b45cf2f3a72dd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankPrefab: {fileID: 4207718974050434496, guid: 05941583485bc4b449bdcad7ccad26b4, type: 3}
+  rankParent: {fileID: 6126322013346569696}
 --- !u!1 &6126322013327156082
 GameObject:
   m_ObjectHideFlags: 0
