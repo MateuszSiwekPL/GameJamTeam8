@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     
     
     private bool _shouldSpawn = true;
+    private int _currentPath = 1;
 
     private Transform _targetPosition;
     private bool _isMoving;
@@ -60,27 +61,26 @@ public class GameManager : MonoBehaviour
         while (_shouldSpawn)
         {
             takenPaths.Clear();
-            await UniTask.Delay(TimeSpan.FromSeconds(_spawnRate));
-            
-            if (Random.value <= 0.2f)
-            {
-                var bonus = Instantiate(_bonusPrefab);
-                int randomPathBonus;
-                while (true)
-                {
-                    randomPathBonus = Random.Range(0, _spawners.Count);
-                    if (!takenPaths.Contains(randomPathBonus))
-                    {
-                        takenPaths.Add(randomPathBonus);
-                        break;
-                    }
-                }
-                bonus.transform.position = _spawners[randomPathBonus].position;
-            }
-            
-            var numberOfObjects = Random.Range(2, 5);
+            await UniTask.Delay(TimeSpan.FromMilliseconds(_spawnRate));
 
-            for (int i = 0; i < numberOfObjects; i++)
+            // for (int i = 0; i < 2; i++)
+            // {
+            //     var bonus = Instantiate(_bonusPrefab);
+            //     int randomPathBonus;
+            //     while (true)
+            //     {
+            //         randomPathBonus = Random.Range(0, _spawners.Count);
+            //         if (!takenPaths.Contains(randomPathBonus))
+            //         {
+            //             takenPaths.Add(randomPathBonus);
+            //             break;
+            //         }
+            //     }
+            //
+            //     bonus.transform.position = _spawners[randomPathBonus].position;
+            // }
+
+            for (int i = 0; i < 2; i++)
             {
                 var enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)]);
                 int randomPath;
@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
                         break;
                     }
                 }
+
                 enemy.transform.position = _spawners[randomPath].position;
             }
         }
@@ -147,84 +148,52 @@ public class GameManager : MonoBehaviour
     
     private void GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            CheckBit();
-            MovePlayer(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CheckBit();
-            MovePlayer(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            CheckBit();
-            MovePlayer(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if(_paths.Count < 4) return;
-            CheckBit();
-            MovePlayer(4);
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            if(_paths.Count < 5) return;
-            CheckBit();
-            MovePlayer(5);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            CheckBit();
-            if (_player.CurrentBonus != null)
+            if (CheckBit())
             {
-                _player.CurrentBonus.TryGetBonus(KeyCode.UpArrow);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            CheckBit();
-            if (_player.CurrentBonus != null)
-            {
-                _player.CurrentBonus.TryGetBonus(KeyCode.DownArrow);
+                AddTime(1f);
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             CheckBit();
-            if (_player.CurrentBonus != null)
-            {
-                _player.CurrentBonus.TryGetBonus(KeyCode.RightArrow);
-            }
+            MovePlayer(1);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             CheckBit();
-            if (_player.CurrentBonus != null)
-            {
-                _player.CurrentBonus.TryGetBonus(KeyCode.LeftArrow);
-            }
+            MovePlayer(-1);
         }
     }
     
-    private void CheckBit()
+    private bool CheckBit()
     {
         var hit = Physics2D.Raycast(_raycastOrigin.position, Vector2.down, 1f);
         if (hit.collider != null && hit.collider.TryGetComponent<BitObjectBehaviour>(out var bit))
         {
             Destroy(bit.gameObject);
+            return true;
         }
         else
         {
             RemoveTime(1f);
+            return false;
         }
     }
     
-    private void MovePlayer(int position)
+    private void MovePlayer(int move)
     {
-        _targetPosition = _paths[position - 1];
+        var index = _currentPath + move;
+        
+        if(index < 0 || index >= _paths.Count)
+        {
+            return;
+        }
+        
+        _currentPath = index;
+        
+        _targetPosition = _paths[index];
         _isMoving = true;
         _player.BoxCollider2D.enabled = false;
     }
