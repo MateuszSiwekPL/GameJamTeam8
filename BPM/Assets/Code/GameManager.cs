@@ -128,8 +128,8 @@ public class GameManager : MonoBehaviour
     
     private void UpdateTimer()
     {
-        _timer.text = _time.ToString("F2") + "<size=40>s";
         _time -= Time.deltaTime;
+        _timer.text = _time.ToString("F2") + "<size=40>s";
         
         if(_time <= 0)
         {
@@ -223,12 +223,14 @@ public class GameManager : MonoBehaviour
     public void AddTime(float time)
     {
         _time += time;
+        _timer.text = _time.ToString("F2") + "<size=40>s";
         AnimateBonus(true, time).Forget();
     }
     
     public void RemoveTime(float time)
     {
         _time -= time;
+        _timer.text = _time.ToString("F2") + "<size=40>s";
         AnimateBonus(false, time).Forget();
     }
 
