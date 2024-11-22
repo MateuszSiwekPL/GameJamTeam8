@@ -1314,6 +1314,8 @@ MonoBehaviour:
   _raycastOrigin: {fileID: 435809038}
   _bitSpawnPoint: {fileID: 7024586423998141621}
   _hiddenTime: 10
+  _canvas: {fileID: 865062664}
+  _endScreen: {fileID: 4897070675942461184, guid: 2616eeb463ba0014abf3f9cd7e8cab66, type: 3}
 --- !u!4 &1345839801
 Transform:
   m_ObjectHideFlags: 0

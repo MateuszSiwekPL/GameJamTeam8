@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _raycastOrigin;
     [SerializeField] private Transform _bitSpawnPoint;
     [SerializeField] private float _hiddenTime;
+    [SerializeField] private Canvas _canvas;
+    [SerializeField] private EndScreen _endScreen;
     
     
     private bool _shouldSpawn = true;
@@ -122,7 +124,8 @@ public class GameManager : MonoBehaviour
     private async UniTask ShowEndScreen(bool win)
     {
         await UniTask.WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        var endScreen = Instantiate(_endScreen, _canvas.transform);
+        endScreen.Setup(win);
     }
     
     private void UpdateTimer()
