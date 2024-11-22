@@ -8,6 +8,8 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _winAudioSource;
     
     [SerializeField] private TMP_InputField _nameInput;
     [SerializeField] private Button _submitButton;
@@ -16,6 +18,14 @@ public class EndScreen : MonoBehaviour
     private int _score;
     public void Setup(bool win, float score)
     {
+        if (!win)
+        {
+            _audioSource.Play();
+        }
+        else
+        {
+            _winAudioSource.Play();
+        }
         _score = (int)score;
         _resultText.text = win ? "You Win!" : "You Lose!";
         _scoreText.text = "Score: " + score.ToString("F0");
