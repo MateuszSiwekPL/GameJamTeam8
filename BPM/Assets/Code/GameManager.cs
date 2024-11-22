@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EndScreen _endScreen;
     [SerializeField] private TextMeshProUGUI _bonusText;
     [SerializeField] private CanvasGroup _bonusTextCanvas;
+    [SerializeField] private Image _progressImage;
     
     
     private bool _shouldSpawn = true;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         StartSpawning().Forget();
         StartBit().Forget();
+        _progressImage.DOFillAmount(0, _hiddenTime).SetEase(Ease.Linear);
     }
     
     private async UniTask StartBit()
@@ -120,7 +123,7 @@ public class GameManager : MonoBehaviour
         }
 
         var endScreen = Instantiate(_endScreen, _canvas.transform);
-        endScreen.Setup(win);
+        endScreen.Setup(win, Mathf.Max(_time, 0f));
     }
     
     private void UpdateTimer()

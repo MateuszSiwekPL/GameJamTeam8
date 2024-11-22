@@ -915,3 +915,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resultText: {fileID: 5409784047862546570}
+  _scoreText: {fileID: 3495490809756859397}
+  _restartButton: {fileID: 1799113146998104507}
+  _exitButton: {fileID: 4258399040495936746}
