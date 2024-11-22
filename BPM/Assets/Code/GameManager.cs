@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     
     
     private bool _shouldSpawn = true;
-    private int _currentPath = 1;
+    private int _currentPath = 0;
 
     private Transform _targetPosition;
     private bool _isMoving;
@@ -63,31 +63,16 @@ public class GameManager : MonoBehaviour
             takenPaths.Clear();
             await UniTask.Delay(TimeSpan.FromMilliseconds(_spawnRate));
 
-            // for (int i = 0; i < 2; i++)
-            // {
-            //     var bonus = Instantiate(_bonusPrefab);
-            //     int randomPathBonus;
-            //     while (true)
-            //     {
-            //         randomPathBonus = Random.Range(0, _spawners.Count);
-            //         if (!takenPaths.Contains(randomPathBonus))
-            //         {
-            //             takenPaths.Add(randomPathBonus);
-            //             break;
-            //         }
-            //     }
-            //
-            //     bonus.transform.position = _spawners[randomPathBonus].position;
-            // }
-
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _spawners.Count/2; i++)
             {
                 var enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)]);
                 int randomPath;
                 while (true)
                 {
                     randomPath = Random.Range(0, _spawners.Count);
-                    if (!takenPaths.Contains(randomPath))
+                    if (!takenPaths.Contains(randomPath) && 
+                        !takenPaths.Contains(randomPath + 1) && 
+                        !takenPaths.Contains(randomPath - 1))
                     {
                         takenPaths.Add(randomPath);
                         break;
