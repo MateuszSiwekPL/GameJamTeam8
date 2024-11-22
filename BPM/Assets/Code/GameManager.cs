@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _bitPrefab;
     [SerializeField] private Transform _raycastOrigin;
     [SerializeField] private Transform _bitSpawnPoint;
+    [SerializeField] private float _hiddenTime;
+    
+    
+    private bool _shouldSpawn = true;
 
     private Transform _targetPosition;
     private bool _isMoving;
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
     
     private async UniTask StartBit()
     {
-        while (true)
+        while (_shouldSpawn)
         {
             await UniTask.Delay(TimeSpan.FromMilliseconds(_bitRate * 1000));
             var bit = Instantiate(_bitPrefab);
@@ -51,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         var takenPaths = new HashSet<int>();
 
-        while (true)
+        while (_shouldSpawn)
         {
             takenPaths.Clear();
             await UniTask.Delay(TimeSpan.FromSeconds(_spawnRate));
@@ -95,14 +99,43 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         GetInput();
-        UpdateTimer();
         MovePlayer();
+        if (_shouldSpawn)
+        {
+            UpdateTimer();
+            UpdateHiddenTimer();
+        }
+    }
+    
+    private void UpdateHiddenTimer()
+    {
+        _hiddenTime -= Time.deltaTime;
+        
+        if(_hiddenTime <= 0)
+        {
+            _shouldSpawn = false;
+            Debug.Log("WIN");
+            ShowEndScreen(true).Forget();
+        }
+    }
+
+    private async UniTask ShowEndScreen(bool win)
+    {
+        await UniTask.WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
     
     private void UpdateTimer()
     {
         _timer.text = _time.ToString("F2");
         _time -= Time.deltaTime;
+        
+        if(_time <= 0)
+        {
+            _shouldSpawn = false;
+            Debug.Log("LOSE");
+            ShowEndScreen(false).Forget();
+        }
     }
     
     private void GetInput()
