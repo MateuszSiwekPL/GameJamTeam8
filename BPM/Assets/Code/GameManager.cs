@@ -156,6 +156,8 @@ public class GameManager : MonoBehaviour
     {
         if(_shouldSpawn == false)
         {
+            _timer.gameObject.SetActive(false);
+            _progressImage.gameObject.SetActive(false);
             return;
         }
         
