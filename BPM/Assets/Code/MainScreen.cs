@@ -8,12 +8,14 @@ public class MainScreen : MonoBehaviour
     [SerializeField] private Button Scene1Button;
     [SerializeField] private Button Scene2Button;
     [SerializeField] private Button Scene3Button;
+    [SerializeField] private Button Scene4Button;
     [SerializeField] private Button ExitButton;
     void Start()
     {
         Scene1Button.onClick.AddListener(() => LoadScene(1));
         Scene2Button.onClick.AddListener(() => LoadScene(2));
         Scene3Button.onClick.AddListener(() => LoadScene(3));
+        Scene4Button.onClick.AddListener(() => LoadScene(4));
         ExitButton.onClick.AddListener(() => Application.Quit());
     }
     
