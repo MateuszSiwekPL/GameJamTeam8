@@ -109,93 +109,77 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (CheckBit())
-            {
-                MovePlayer(1);
-            }
+            CheckBit();
+            MovePlayer(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (CheckBit())
-            {
-                MovePlayer(2);
-            } 
+            CheckBit();
+            MovePlayer(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (CheckBit())
-            {
-                MovePlayer(3);
-            }
+            CheckBit();
+            MovePlayer(3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if(_paths.Count < 4) return;
-            if (CheckBit())
-            {
-                MovePlayer(4);
-            }
+            CheckBit();
+            MovePlayer(4);
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             if(_paths.Count < 5) return;
-            if (CheckBit())
-            {
-                MovePlayer(5);
-            }
+            CheckBit();
+            MovePlayer(5);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (CheckBit())
+            CheckBit();
+            if (_player.CurrentBonus != null)
             {
-                if (_player.CurrentBonus != null)
-                {
-                    _player.CurrentBonus.TryGetBonus(KeyCode.UpArrow);
-                }
+                _player.CurrentBonus.TryGetBonus(KeyCode.UpArrow);
             }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (CheckBit())
+            CheckBit();
+            if (_player.CurrentBonus != null)
             {
-                if (_player.CurrentBonus != null)
-                {
-                    _player.CurrentBonus.TryGetBonus(KeyCode.DownArrow);
-                }
+                _player.CurrentBonus.TryGetBonus(KeyCode.DownArrow);
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (CheckBit())
+            CheckBit();
+            if (_player.CurrentBonus != null)
             {
-                if (_player.CurrentBonus != null)
-                {
-                    _player.CurrentBonus.TryGetBonus(KeyCode.RightArrow);
-                }
+                _player.CurrentBonus.TryGetBonus(KeyCode.RightArrow);
             }
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (CheckBit())
+            CheckBit();
+            if (_player.CurrentBonus != null)
             {
-                if (_player.CurrentBonus != null)
-                {
-                    _player.CurrentBonus.TryGetBonus(KeyCode.LeftArrow);
-                }
+                _player.CurrentBonus.TryGetBonus(KeyCode.LeftArrow);
             }
         }
     }
     
-    private bool CheckBit()
+    private void CheckBit()
     {
         var hit = Physics2D.Raycast(_raycastOrigin.position, Vector2.down, 1f);
         if (hit.collider != null && hit.collider.TryGetComponent<BitObjectBehaviour>(out var bit))
         {
             Destroy(bit.gameObject);
-            return true;
         }
-
-        return false;
+        else
+        {
+            RemoveTime(1f);
+        }
     }
     
     private void MovePlayer(int position)
