@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4098929031896619634}
   m_Layer: 0
   m_Name: BitObject
-  m_TagString: Untagged
+  m_TagString: Bit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 8280704489340525788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.7941, y: -4.5487, z: -6}
-  m_LocalScale: {x: 1.5917399, y: 0.89738995, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spriteRenderer: {fileID: 6424088814436236409}
 --- !u!58 &-7740106520003618503
 CircleCollider2D:
   m_ObjectHideFlags: 0

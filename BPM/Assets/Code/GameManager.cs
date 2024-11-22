@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         while (_shouldSpawn)
         {
-            await UniTask.Delay(TimeSpan.FromMilliseconds(_bitRate * 1000));
+            await UniTask.Delay(TimeSpan.FromMilliseconds(_bitRate));
             var bit = Instantiate(_bitPrefab);
             bit.transform.position = _bitSpawnPoint.position;
         }
@@ -121,9 +121,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private async UniTask ShowEndScreen(bool win)
+    private async UniTask ShowEndScreen(bool win, bool imidiate = false)
     {
-        await UniTask.WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
+        if (!imidiate)
+        {
+            await UniTask.WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
+        }
+
         var endScreen = Instantiate(_endScreen, _canvas.transform);
         endScreen.Setup(win);
     }
@@ -137,7 +141,7 @@ public class GameManager : MonoBehaviour
         {
             _shouldSpawn = false;
             Debug.Log("LOSE");
-            ShowEndScreen(false).Forget();
+            ShowEndScreen(false, true).Forget();
         }
     }
     
@@ -241,6 +245,15 @@ public class GameManager : MonoBehaviour
                 _isMoving = false;
                 _player.BoxCollider2D.enabled = true;
             }
+        }
+    }
+    
+    public void RemoveBits()
+    {
+        foreach (var o in GameObject.FindGameObjectsWithTag("Bit"))
+        {
+            var bit = o.GetComponent<BitObjectBehaviour>();
+            bit.RemoveBit();
         }
     }
 

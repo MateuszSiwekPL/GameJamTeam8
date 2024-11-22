@@ -4,6 +4,13 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float timeToRemove;
+    [SerializeField] private Behaviour behaviour;
+
+    private enum Behaviour
+    {
+        TakeTime,
+        RemoveBits
+    }
 
     private void Update()
     {
@@ -12,6 +19,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void RemoveTime()
     {
-        GameManager.Instance.RemoveTime(timeToRemove);
+        if (behaviour == Behaviour.TakeTime)
+        {
+            GameManager.Instance.RemoveTime(timeToRemove);
+        }
+        else if (behaviour == Behaviour.RemoveBits)
+        {
+            GameManager.Instance.RemoveBits();
+        }
     }
 }
