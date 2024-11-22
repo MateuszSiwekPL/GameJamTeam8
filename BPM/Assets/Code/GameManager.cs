@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bonusText;
     [SerializeField] private CanvasGroup _bonusTextCanvas;
     [SerializeField] private Image _progressImage;
+    [SerializeField] private float timeToWait;
     
     
     private bool _shouldSpawn = true;
@@ -45,11 +46,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    private async void Start()
     {
+        await UniTask.Delay(TimeSpan.FromMilliseconds(timeToWait));
+        _progressImage.DOFillAmount(0, _hiddenTime).SetEase(Ease.Linear);
         StartSpawning().Forget();
         StartBit().Forget();
-        _progressImage.DOFillAmount(0, _hiddenTime).SetEase(Ease.Linear);
     }
     
     private async UniTask StartBit()

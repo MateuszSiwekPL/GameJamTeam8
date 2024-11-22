@@ -1527,6 +1527,7 @@ MonoBehaviour:
   _bonusText: {fileID: 2143993475}
   _bonusTextCanvas: {fileID: 2143993477}
   _progressImage: {fileID: 1634250240}
+  timeToWait: 5550
 --- !u!4 &1345839801
 Transform:
   m_ObjectHideFlags: 0
