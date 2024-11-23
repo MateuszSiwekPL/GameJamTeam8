@@ -11306,7 +11306,7 @@ MonoBehaviour:
   _bonusText: {fileID: 2143993475}
   _bonusTextCanvas: {fileID: 2143993477}
   _progressImage: {fileID: 1634250240}
-  timeToWait: 3221
+  timeToWait: 3211
   _startTimer: {fileID: 2125104432}
   _musicSource: {fileID: 1459795834}
 --- !u!4 &1345839801

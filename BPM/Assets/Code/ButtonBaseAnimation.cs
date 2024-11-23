@@ -10,15 +10,18 @@ public class ButtonBaseAnimation : MonoBehaviour, IPointerDownHandler, IPointerU
 
     [SerializeField] private Transform _buttonParent;
     [SerializeField] private AudioSource _audioSource;
+    
+    private Vector3 _initialScale;
 
     private void Awake()
     {
         _buttonParent ??= transform;
+        _initialScale = _buttonParent.localScale;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _buttonParent.DOScale(0.75f, 0.1f);
+        _buttonParent.DOScale(_pressScale, 0.1f);
         
         if (_audioSource != null)
         {
@@ -28,6 +31,6 @@ public class ButtonBaseAnimation : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _buttonParent.DOScale(1f, 0.1f);
+        _buttonParent.DOScale(_buttonParent.localScale, 0.1f);
     }
 }
