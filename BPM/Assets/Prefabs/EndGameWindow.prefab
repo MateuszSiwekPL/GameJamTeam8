@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 338942540553532981}
   _audioSource: {fileID: 0}
 --- !u!82 &6409482265938897864
@@ -1826,7 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 3195487183229459448}
   _audioSource: {fileID: 0}
 --- !u!1 &8829475023922834758
