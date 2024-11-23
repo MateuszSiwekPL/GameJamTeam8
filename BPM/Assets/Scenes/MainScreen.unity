@@ -1391,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &664146413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3129,6 +3129,7 @@ MonoBehaviour:
   Scene4Button: {fileID: 167023522}
   ExitButton: {fileID: 932393852}
   SceneTutButton: {fileID: 1539588708}
+  _tutorial: {fileID: 664146412}
 --- !u!4 &1482669724
 Transform:
   m_ObjectHideFlags: 0
