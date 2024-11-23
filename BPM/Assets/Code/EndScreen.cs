@@ -24,7 +24,10 @@ public class EndScreen : MonoBehaviour
         }
         else
         {
-            _winAudioSource.Play();
+            if (_winAudioSource != null)
+            {
+                _winAudioSource.Play();
+            }
         }
         _score = (int)score;
         _resultText.text = win ? "You Win!" : "You Lose!";
