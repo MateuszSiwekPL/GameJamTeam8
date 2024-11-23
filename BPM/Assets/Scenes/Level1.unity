@@ -11145,7 +11145,13 @@ MonoBehaviour:
   _bonusPrefab: {fileID: 4883483879259647477, guid: 44f55c9f449c64c46a2c72a578fd3e01, type: 3}
   _enemyPrefabs:
   - {fileID: 4883483879259647477, guid: 5b77c5154e3a20d47b3eaf4fcf5d666f, type: 3}
-  _bitPrefab: {fileID: 8280704489340525788, guid: 8fde9543593f6664185bef627254f2f8, type: 3}
+  - {fileID: 4883483879259647477, guid: 269e5f9d0e56e4b4dbae484e9bf83e5c, type: 3}
+  - {fileID: 4883483879259647477, guid: cb2f06d8a87e94947a3b7c6279ecac0a, type: 3}
+  _bitPrefabs:
+  - {fileID: 8280704489340525788, guid: 8fde9543593f6664185bef627254f2f8, type: 3}
+  - {fileID: 8280704489340525788, guid: 1f551788b97f11940a9ef4d88fb03afd, type: 3}
+  - {fileID: 8280704489340525788, guid: a90a8fa6e01f07a48a1ffd9634fc969d, type: 3}
+  - {fileID: 8280704489340525788, guid: 5643bfd968ca2fa44b4d953a74d0f2ef, type: 3}
   _raycastOrigin: {fileID: 435809038}
   _bitSpawnPoint: {fileID: 7024586423998141621}
   _hiddenTime: 60

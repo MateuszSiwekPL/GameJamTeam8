@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _bitRate;
     [SerializeField] private GameObject _bonusPrefab;
     [SerializeField] private List<GameObject>_enemyPrefabs;
-    [SerializeField] private GameObject _bitPrefab;
+    [SerializeField] private List<GameObject> _bitPrefabs;
     [SerializeField] private Transform _raycastOrigin;
     [SerializeField] private Transform _bitSpawnPoint;
     [SerializeField] private float _hiddenTime;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         while (_shouldSpawn)
         {
             await UniTask.Delay(TimeSpan.FromMilliseconds(_bitRate));
-            var bit = Instantiate(_bitPrefab);
+            var bit = Instantiate(_bitPrefabs[Random.Range(0, _bitPrefabs.Count)]);
             bit.transform.position = _bitSpawnPoint.position;
         }
     }
