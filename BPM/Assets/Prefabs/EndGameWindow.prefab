@@ -1371,6 +1371,7 @@ GameObject:
   - component: {fileID: 7220950898614663244}
   - component: {fileID: 2392727592447930524}
   - component: {fileID: 4258399040495936746}
+  - component: {fileID: 786999840306116524}
   - component: {fileID: 6409482265938897864}
   m_Layer: 5
   m_Name: ButtonEnd
@@ -1482,6 +1483,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &786999840306116524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227739153850970096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pressScale: 0.75
+  _buttonParent: {fileID: 338942540553532981}
+  _audioSource: {fileID: 0}
 --- !u!82 &6409482265938897864
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1591,6 +1607,7 @@ GameObject:
   - component: {fileID: 1804026377250149356}
   - component: {fileID: 1799113146998104507}
   - component: {fileID: 7989379557309654675}
+  - component: {fileID: 1632477049152510116}
   m_Layer: 5
   m_Name: ButtonReset
   m_TagString: Untagged
@@ -1797,6 +1814,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1632477049152510116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8344637578608440527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pressScale: 0.75
+  _buttonParent: {fileID: 3195487183229459448}
+  _audioSource: {fileID: 0}
 --- !u!1 &8829475023922834758
 GameObject:
   m_ObjectHideFlags: 0
