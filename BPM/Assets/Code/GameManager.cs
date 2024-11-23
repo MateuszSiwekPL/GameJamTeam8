@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     private async UniTask StartSpawning()
     {
-        var takenPaths = new HashSet<int>();
+        var takenPaths = new List<int>();
 
         while (_shouldSpawn)
         {
@@ -99,8 +99,16 @@ public class GameManager : MonoBehaviour
                 while (true)
                 {
                     randomPath = Random.Range(0, _spawners.Count);
-                    if (!takenPaths.Contains(randomPath) && 
-                        !takenPaths.Contains(randomPath + 1) && 
+                    
+                    if (takenPaths.Count == 1 && 
+                        ((takenPaths[0] == 1 && randomPath == 2) || (takenPaths[0] == 2 && randomPath == 1)))
+                    {
+                        takenPaths.Add(randomPath);
+                        break;
+                    }
+                    
+                    if (!takenPaths.Contains(randomPath) &&
+                        !takenPaths.Contains(randomPath + 1) &&
                         !takenPaths.Contains(randomPath - 1))
                     {
                         takenPaths.Add(randomPath);
