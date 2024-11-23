@@ -31,7 +31,7 @@ public class EndScreen : MonoBehaviour
         }
         _score = (int)score;
         _resultText.text = win ? "You Win!" : "You Lose!";
-        _scoreText.text = "Score: " + score.ToString("F0");
+        _scoreText.text = "Score: " + _score;
         _exitButton.onClick.AddListener(() => UnityEngine.SceneManagement.SceneManager.LoadScene(0));
         
         _restartButton.onClick.AddListener(() => { 
