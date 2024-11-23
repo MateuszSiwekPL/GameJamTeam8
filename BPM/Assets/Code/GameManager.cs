@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     
     
     private bool _shouldSpawn = true;
-    private int _currentPath = 0;
+    private int _currentPath = 1;
 
     private Transform _targetPosition;
     private bool _isMoving;
