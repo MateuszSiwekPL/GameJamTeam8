@@ -11291,8 +11291,8 @@ MonoBehaviour:
   - {fileID: 2138762786}
   _player: {fileID: 748048043}
   _timer: {fileID: 902364693}
-  _time: 60
-  _spawnRate: 900
+  _time: 45
+  _spawnRate: 600
   _bitRate: 300
   _bonusPrefab: {fileID: 4883483879259647477, guid: 44f55c9f449c64c46a2c72a578fd3e01, type: 3}
   _enemyPrefabs:
