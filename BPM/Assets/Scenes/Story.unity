@@ -387,7 +387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c920e24e62ac144680760b953211e50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0971484864ccf754698978f13feb7b2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -583,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 139}
+  m_AnchoredPosition: {x: 0, y: 84}
   m_SizeDelta: {x: 0, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115620112
@@ -606,11 +606,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Friday night. The city buzzes with restless energy, and you\u2019re behind
-    the wheel of the most wanted hot pink party limo in town. Inside, the music pounds,
-    drinks flow, and your passengers lose themselves in the moment. They don\u2019t
-    care about the destination anymore\u2014unless you hit another car too many times,
-    this party isn\u2019t stopping!"
+  m_text: "Friday night. \n\nThe city buzzes with restless energy, and you\u2019re
+    behind the wheel of the most wanted hot pink party limo in town. \n\nInside,
+    the music pounds, drinks flow, and your passengers lose themselves in the moment.
+    \n\nThey don\u2019t care about the destination anymore\u2014unless you hit another
+    car too many times, \n\nthis party isn\u2019t stopping!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
   m_sharedMaterial: {fileID: 6914004678995066455, guid: 308c74e861065f04f8606bda6e776bfe, type: 2}
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c920e24e62ac144680760b953211e50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0971484864ccf754698978f13feb7b2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
