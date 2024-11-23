@@ -2273,7 +2273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.9
+  _pressScale: 1.8
   _buttonParent: {fileID: 1044100347}
   _audioSource: {fileID: 1044100352}
 --- !u!82 &1044100352

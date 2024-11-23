@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _startTimer;
     [SerializeField] private AudioSource _musicSource;
     
-    
     private bool _shouldSpawn = true;
     private int _currentPath = 1;
 
