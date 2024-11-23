@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 129215546}
   _audioSource: {fileID: 129215551}
 --- !u!82 &129215551
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 167023520}
   _audioSource: {fileID: 167023525}
 --- !u!114 &167023522
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 691691801}
   _audioSource: {fileID: 691691806}
 --- !u!82 &691691806
@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 932393851}
   _audioSource: {fileID: 0}
 --- !u!82 &932393856
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836c556583204ca2b11ab6bf9cae2c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressScale: 0.75
+  _pressScale: 0.9
   _buttonParent: {fileID: 1044100347}
   _audioSource: {fileID: 1044100352}
 --- !u!82 &1044100352
