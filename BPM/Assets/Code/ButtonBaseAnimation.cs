@@ -31,6 +31,6 @@ public class ButtonBaseAnimation : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _buttonParent.DOScale(_buttonParent.localScale, 0.1f);
+        _buttonParent.DOScale(_initialScale, 0.1f);
     }
 }
